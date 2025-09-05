@@ -1,6 +1,7 @@
 import random
 from goblin import Goblin
 from hero import Hero
+from boss import fireDragon
 
 def main():
     print("Welcome to the Battle Arena!")
@@ -10,7 +11,7 @@ def main():
     hero = Hero("Gandalf")
 
     # Create goblins ༼ ºل͟º ༽ ༼ ºل͟º ༽ ༼ ºل͟º ༽
-    goblins = [Goblin(f"Goblin {i+1}") for i in range(3)]
+    goblins = [Goblin(f"Goblin {i+1}", "green") for i in range(3)]
 
     # Keep track of stats
     defeated_goblins = 0
@@ -53,5 +54,29 @@ def main():
     # Final tally of goblins defeated
     print(f"\nTotal goblins defeated: {defeated_goblins} / {len(goblins)}")
 
+
+    if hero.is_alive():
+        print("Boss fight time")
+        fireDragon = fireDragon("Smaug", "red")
+        while hero.is_alive() and fireDragon.is_alive():
+            print("\nNew Boss Round!")
+            rounds += 1
+            
+            # Hero's turn to attack the boss
+            damage = hero.strike()
+            total_damage += damage
+            print(f"Hero attacks {fireDragon.name} for {damage} damage!")
+            fireDragon.take_damage(damage)
+
+            # Check if the boss was defeated
+            if not fireDragon.is_alive():
+                print(f"{fireDragon.name} has been defeated!")
+
+            # Boss's turn to attack
+            if fireDragon.is_alive():
+                damage = fireDragon.attack()
+                total_damage += damage
+                print(f"{fireDragon.name} attacks hero for {damage} damage!")
+                hero.receive_damage(damage)
 if __name__ == "__main__":
     main()
