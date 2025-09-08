@@ -1,11 +1,8 @@
 import random
 from goblin import Goblin
 from hero import Hero
-<<<<<<< Updated upstream
-=======
 from boss import fireDragon
 from baby_elf import BabyElf
->>>>>>> Stashed changes
 
 def main():
     print("Welcome to the Battle Arena!")
@@ -42,7 +39,6 @@ def main():
                 print(f"{goblin.name} attacks hero for {damage} damage!")
                 hero.receive_damage(damage)
 
-<<<<<<< Updated upstream
     # Determine outcome
     if hero.is_alive():
         print(f"\nThe hero has defeated all the goblins! ༼ ᕤ◕◡◕ ༽ᕤ")
@@ -52,10 +48,20 @@ def main():
     # Final tally of goblins defeated
     print(f"\nTotal goblins defeated: {defeated_goblins} / {len(goblins)}")
 
-=======
 # Baby Elf battle section, where the hero faces off against baby elves after defeating the goblins.
     
 
+
+
+
+
+
+#-----------------------------------------------------------------
+# Boss battle section, where the hero faces off against the fire dragon boss after defeating the goblins.
+#-----------------------------------------------------------------
+
+    # Boss fight if hero is still alive after goblin battles
+    defeated_bosses = 0
 
 
 
@@ -125,9 +131,5 @@ def main():
     # Final tally of goblins defeated
     #print(f"\nTotal goblins defeated: {defeated_goblins} / {len(goblins)}")
 
-
-
-
->>>>>>> Stashed changes
 if __name__ == "__main__":
     main()
