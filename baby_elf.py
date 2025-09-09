@@ -1,6 +1,6 @@
 from enemy import Enemy
 
-class BabyElf(Enemy):
+class BabyElfs(Enemy):
     def __init__(self, name, color):
         super().__init__(name)
         self.color = color
